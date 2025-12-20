@@ -1,7 +1,7 @@
 use eframe::NativeOptions;
 use egui::ViewportBuilder;
 
-use crate::app::GraphApp;
+use crate::{app::GraphApp, ui::Theme};
 
 mod app;
 mod ui;
@@ -15,6 +15,9 @@ fn main() -> eframe::Result {
     eframe::run_native(
         "Graph App",
         options,
-        Box::new(|_cc| Ok(Box::<GraphApp>::default())),
+        Box::new(|cc| {
+            Theme::new().apply(&cc.egui_ctx);
+            Ok(Box::<GraphApp>::default())
+        }),
     )
 }

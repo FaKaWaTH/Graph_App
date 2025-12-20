@@ -1,13 +1,15 @@
-use crate::ui::render;
+use crate::ui::{Theme, render};
 
 pub struct GraphApp {
     pub func: String,
+    pub theme: Theme,
 }
 
 impl Default for GraphApp {
     fn default() -> Self {
         Self {
             func: String::new(),
+            theme: Theme::new(),
         }
     }
 }
