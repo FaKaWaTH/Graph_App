@@ -4,6 +4,15 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-eframe = { version = "0.33.3", features = ["glow"]}
+eframe = { version = "0.33.3", default-features = false ,features = ["glow"] }
 egui = "0.33.3"
+egui_plot = "0.34.0"
 
+[profile.dev]
+opt-level = 0
+lto = false
+
+[profile.release]
+opt-level = "s"
+lto = "thin"
+codegen-units = 1
